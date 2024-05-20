@@ -46,6 +46,43 @@ namespace MetalCoin.Infra.Migrations
                     b.ToTable("Categorias", (string)null);
                 });
 
+            modelBuilder.Entity("Metalcoin.Core.Domain.Cupom", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CodigoCupom")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<DateTime>("DataValidade")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("QuantidadeLiberado")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuantidadeUltilizado")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TipoDescontoCupon")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("ValorDesconto")
+                        .HasColumnType("decimal");
+
+                    b.Property<int>("statusCupom")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Cupons", (string)null);
+                });
+
             modelBuilder.Entity("Metalcoin.Core.Domain.Endereco", b =>
                 {
                     b.Property<Guid>("Id")
